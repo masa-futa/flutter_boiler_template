@@ -1,0 +1,11 @@
+targets:
+  $default:
+    builders:
+      slang_build_runner:
+        options:
+          base_locale: ja
+          input_directory: lib/src/i18n/input
+          input_file_pattern: .i18n.yaml
+          output_directory: lib/src/i18n/output
+          translate_var: i18n
+          timestamp: false

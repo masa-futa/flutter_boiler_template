@@ -1,0 +1,45 @@
+name: boiler_template
+sdkPath: .fvm/flutter_sdk
+
+packages:
+  - "packages/app/*"
+  - "packages/features/*"
+  - "packages/server/sample/sample_client"
+  - "packages/server/sample/sample_server"
+
+command:
+  bootstrap:
+    environment:
+     sdk: '>=3.3.0 <4.0.0'
+  dependencies:
+    freezed_annotation: ^2.4.1
+    riverpod_annotation: ^2.3.5
+  dev_dependencies:
+    build_runner: ^2.4.9
+    freezed: ^2.5.2
+    riverpod_generator: ^2.4.0
+
+  clean:
+    hooks:
+      post: |
+        melos exec --flutter -- "flutter clean"
+        melos exec --flutter -- "flutter pub get"
+
+scripts:
+  gen:
+    run: dart run build_runner build --delete-conflicting-outputs
+    exec:
+      concurrency: 1
+    description: Run generate code.
+    packageFilters:
+      dirExists: lib
+      dependsOn: "build_runner with read-only"
+
+  gen:watch:
+    run: dart run build_runner watch --delete-conflicting-outputs
+    exec:
+      concurrency: 99
+    description: Watch and run generate code.
+    packageFilters:
+      dirExists: lib
+      dependsOn: "build_runner with watch"

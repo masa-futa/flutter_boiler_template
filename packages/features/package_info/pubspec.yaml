@@ -1,0 +1,15 @@
+name: package_info
+description: "package_info Flutter project."
+version: 0.0.1
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  package_info_plus: ^7.0.0
+
+dev_dependencies:
+
+flutter:
