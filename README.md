@@ -58,7 +58,7 @@ $ dart bin/main.dart --apply-migrations
 
 ## 認証情報
 `serverpod`でプロジェクトを作成した際に、自動で認証用のパスワードが発行される  
-当たり前だが、こちらはリポートに配置する情報ではないのでignore指定されている。  
+当たり前だが、こちらはリモートに配置する情報ではないのでignore指定されている。  
 が、サンプルのテンプレートとなるため、今後、本プロジェクトを追加した人が正常にサーバーが立ち上がらない可能性もあるので、以下を追加する手順を記載しておく。
 1. `packages/server/sample/sample_server/config`に`passwords.yaml` を作成
 2. 以下の内容をペーストしてください
@@ -99,7 +99,7 @@ production:
   serviceSecret: 'B_EWi831Ng_5aPnejmThGJrAK_WCW95G'
 
 ```
-これで、ドッカーコンテナを再起動し、サーバーを立ち上げてください。
+これで、docker containerを再起動し、サーバーを立ち上げてください。
 
 ## tips
 ### docker containerが正常に立ち上がらない
